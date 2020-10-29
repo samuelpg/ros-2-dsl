@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<debug-info version="2">
+  <concept fqn="c:f3061a53-9226-4cc5-a443-f952ceaf5816/1082485599095:jetbrains.mps.baseLanguage.structure.BlockStatement" />
+  <concept fqn="c:f3061a53-9226-4cc5-a443-f952ceaf5816/1068580123140:jetbrains.mps.baseLanguage.structure.ConstructorDeclaration" />
+  <concept fqn="c:f3061a53-9226-4cc5-a443-f952ceaf5816/1068580123155:jetbrains.mps.baseLanguage.structure.ExpressionStatement" />
+  <concept fqn="c:f3061a53-9226-4cc5-a443-f952ceaf5816/1068580123159:jetbrains.mps.baseLanguage.structure.IfStatement" />
+  <concept fqn="c:f3061a53-9226-4cc5-a443-f952ceaf5816/1068580123165:jetbrains.mps.baseLanguage.structure.InstanceMethodDeclaration" />
+  <concept fqn="c:f3061a53-9226-4cc5-a443-f952ceaf5816/1068581242864:jetbrains.mps.baseLanguage.structure.LocalVariableDeclarationStatement" />
+  <concept fqn="c:f3061a53-9226-4cc5-a443-f952ceaf5816/1068581242878:jetbrains.mps.baseLanguage.structure.ReturnStatement" />
+  <concept fqn="c:f3061a53-9226-4cc5-a443-f952ceaf5816/1070462154015:jetbrains.mps.baseLanguage.structure.StaticFieldDeclaration" />
+  <root>
+    <file name="TypesystemDescriptor.java">
+      <unit at="8,0,16,0" name="ROS2.typesystem.TypesystemDescriptor" />
+    </file>
+  </root>
+  <root nodeRef="r:32754cbf-4758-422a-8eaf-16202a1e987c(ROS2.typesystem)/3597278078448497916">
+    <file name="TypesystemDescriptor.java">
+      <node id="3597278078448497916" at="10,5,11,92" concept="5" />
+      <node id="3597278078448497916" at="11,92,12,55" concept="2" />
+      <node id="3597278078448497916" at="9,33,13,5" concept="0" />
+      <scope id="3597278078448497916" at="10,5,12,55">
+        <var name="nonTypesystemRule" id="3597278078448497916" />
+      </scope>
+    </file>
+    <file name="checkRemappings_NonTypesystemRule.java">
+      <node id="3597278078448518212" at="30,11,31,70" concept="5" />
+      <node id="3597278078448518212" at="31,70,32,250" concept="5" />
+      <node id="3597278078448497916" at="38,50,39,34" concept="6" />
+      <node id="3597278078448497916" at="41,68,42,102" concept="6" />
+      <node id="3597278078448497916" at="44,30,45,17" concept="6" />
+      <node id="3597278078448497916" at="49,0,50,0" concept="7" trace="remappings$v1W_" />
+      <node id="3597278078448497916" at="53,0,54,0" concept="7" trace="remapping$Po6Y" />
+      <node id="3597278078448497916" at="54,0,55,0" concept="7" trace="original$PnCW" />
+      <node id="3597278078448497916" at="58,0,59,0" concept="7" trace="Remappings$bb" />
+      <node id="3597278078448497916" at="24,0,26,0" concept="1" trace="checkRemappings_NonTypesystemRule#()V" />
+      <node id="3597278078448497916" at="38,0,41,0" concept="4" trace="getApplicableConcept#()Lorg/jetbrains/mps/openapi/language/SAbstractConcept;" />
+      <node id="3597278078448497916" at="41,0,44,0" concept="4" trace="isApplicableAndPattern#(Lorg/jetbrains/mps/openapi/model/SNode;)Ljetbrains/mps/lang/typesystem/runtime/IsApplicableStatus;" />
+      <node id="3597278078448497916" at="44,0,47,0" concept="4" trace="overrides#()Z" />
+      <node id="3597278078448518212" at="29,128,33,11" concept="0" />
+      <node id="3597278078448511720" at="28,35,34,9" concept="3" />
+      <node id="3597278078448511498" at="28,0,36,0" concept="4" trace="visit#(Lorg/jetbrains/mps/openapi/model/SNode;)V" />
+      <node id="3597278078448497935" at="26,123,36,7" concept="2" />
+      <node id="3597278078448497916" at="26,0,38,0" concept="4" trace="applyRule#(Lorg/jetbrains/mps/openapi/model/SNode;Ljetbrains/mps/typesystem/inference/TypeCheckingContext;Ljetbrains/mps/lang/typesystem/runtime/IsApplicableStatus;)V" />
+      <scope id="3597278078448497916" at="24,46,24,46" />
+      <scope id="3597278078448497916" at="38,50,39,34" />
+      <scope id="3597278078448497916" at="41,68,42,102" />
+      <scope id="3597278078448497916" at="44,30,45,17" />
+      <scope id="3597278078448497916" at="24,0,26,0" />
+      <scope id="3597278078448518212" at="30,11,32,250">
+        <var name="_reporter_2309309498" id="3597278078448518212" />
+        <var name="errorTarget" id="3597278078448518212" />
+      </scope>
+      <scope id="3597278078448497916" at="38,0,41,0" />
+      <scope id="3597278078448497916" at="41,0,44,0">
+        <var name="argument" id="3597278078448497916" />
+      </scope>
+      <scope id="3597278078448497916" at="44,0,47,0" />
+      <scope id="3597278078448511722" at="29,128,33,11" />
+      <scope id="3597278078448511499" at="28,35,34,9" />
+      <scope id="3597278078448511498" at="28,0,36,0">
+        <var name="it" id="3597278078448511498" />
+      </scope>
+      <scope id="3597278078448497917" at="26,123,36,7" />
+      <scope id="3597278078448497916" at="26,0,38,0">
+        <var name="remappings" id="3597278078448497916" />
+        <var name="status" id="3597278078448497916" />
+        <var name="typeCheckingContext" id="3597278078448497916" />
+      </scope>
+      <unit id="3597278078448497916" at="48,0,51,0" name="ROS2.typesystem.checkRemappings_NonTypesystemRule$LINKS" />
+      <unit id="3597278078448497916" at="57,0,60,0" name="ROS2.typesystem.checkRemappings_NonTypesystemRule$CONCEPTS" />
+      <unit id="3597278078448497916" at="52,0,56,0" name="ROS2.typesystem.checkRemappings_NonTypesystemRule$PROPS" />
+      <unit id="3597278078448511498" at="27,103,36,5" name="ROS2.typesystem.checkRemappings_NonTypesystemRule$1" />
+      <unit id="3597278078448497916" at="23,0,61,0" name="ROS2.typesystem.checkRemappings_NonTypesystemRule" />
+    </file>
+  </root>
+</debug-info>
+
