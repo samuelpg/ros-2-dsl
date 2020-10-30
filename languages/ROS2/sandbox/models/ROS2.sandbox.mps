@@ -66,11 +66,16 @@
       </concept>
     </language>
     <language id="73f2d64e-927d-48dc-89c7-793f38431f94" name="ROS2">
-      <concept id="2948909696438526028" name="ROS2.structure.TopicRef" flags="ng" index="2q0c7M" />
       <concept id="2948909696438878180" name="ROS2.structure.Namespace" flags="ng" index="2q7hTq" />
       <concept id="3597278078448476846" name="ROS2.structure.Argument" flags="ng" index="1pPbJO">
         <property id="3597278078448476849" name="remapping" index="1pPbJF" />
         <property id="3597278078448476847" name="original" index="1pPbJP" />
+      </concept>
+      <concept id="3597278078448382759" name="ROS2.structure.RequirementsProfileAnnotation" flags="ng" index="1pQMDX">
+        <reference id="3597278078448382760" name="requirementsProfile" index="1pQMDM" />
+      </concept>
+      <concept id="2517694108707314514" name="ROS2.structure.CapabilityProfileAnnotation" flags="ng" index="3SpRSx">
+        <reference id="3597278078448382757" name="profile" index="1pQMDZ" />
       </concept>
       <concept id="2517694108707314518" name="ROS2.structure.Action" flags="ng" index="3SpRS_">
         <child id="7775975036117364635" name="feedback" index="3pZnY3" />
@@ -78,8 +83,20 @@
       <concept id="2517694108707314517" name="ROS2.structure.Remappings" flags="ng" index="3SpRSA">
         <child id="3597278078448476852" name="remappings" index="1pPbJI" />
       </concept>
-      <concept id="2517694108707314516" name="ROS2.structure.Monitor" flags="ng" index="3SpRSB">
-        <child id="2948909696438526031" name="topics" index="2q0c7L" />
+    </language>
+    <language id="6d222813-53ea-440e-ba30-23ced4b723f0" name="QoS">
+      <concept id="8489988947995225367" name="QoS.structure.Parameter" flags="ng" index="lVhbw">
+        <property id="8489988947995225370" name="value" index="lVhbH" />
+      </concept>
+      <concept id="8489988947995225364" name="QoS.structure.CapabilitiesProfile" flags="ng" index="lVhbz">
+        <child id="8489988947995225377" name="policies" index="lVhbm" />
+      </concept>
+      <concept id="990279074489850810" name="QoS.structure.RequirementsProfile" flags="ng" index="12LBoC">
+        <child id="990279074489871629" name="requirements" index="12LC2v" />
+      </concept>
+      <concept id="396107887467192288" name="QoS.structure.QoSDefinition" flags="ng" index="1wihRA">
+        <child id="990279074489850815" name="requirements" index="12LBoH" />
+        <child id="396107887467192291" name="capabilities" index="1wihR_" />
       </concept>
     </language>
     <language id="ceab5195-25ea-4f22-9b92-103b95ca8c0c" name="jetbrains.mps.lang.core">
@@ -96,6 +113,9 @@
     <node concept="3tteA$" id="5vG_M9tTPtM" role="3ttcQl">
       <property role="TrG5h" value="sub_a" />
       <node concept="10Oyi0" id="5vG_M9tTSzR" role="17RAGi" />
+      <node concept="3SpRSx" id="5z3fZ2ZXDBw" role="lGtFl">
+        <ref role="1pQMDZ" node="5z3fZ2ZX8V0" resolve="wifi_connection" />
+      </node>
     </node>
     <node concept="3tteAs" id="5vG_M9tTSzY" role="3ttcQl">
       <property role="1T6LxX" value="378Eyp8OV9o/Output" />
@@ -108,7 +128,7 @@
     </node>
   </node>
   <node concept="3tteAy" id="5vG_M9tTS$b">
-    <property role="TrG5h" value="Kinova-arm" />
+    <property role="TrG5h" value="kinova-arm" />
     <node concept="2WYcwU" id="5vG_M9tTS$c" role="3ttgI2">
       <property role="TrG5h" value="component_a_inst" />
       <ref role="2WYf9R" node="5vG_M9tTPtF" resolve="component_a" />
@@ -144,12 +164,6 @@
       <node concept="2q7hTq" id="2zGCrUMXBW9" role="lGtFl">
         <property role="TrG5h" value="thinking" />
       </node>
-      <node concept="3SpRSA" id="2zGCrUMXNj4" role="lGtFl">
-        <node concept="1pPbJO" id="2zGCrUMXNj7" role="1pPbJI">
-          <property role="1pPbJP" value="only" />
-          <property role="1pPbJF" value="thing" />
-        </node>
-      </node>
     </node>
     <node concept="3tteA_" id="5vG_M9tUmj1" role="3ttgI7">
       <property role="TrG5h" value="my_topic" />
@@ -160,9 +174,9 @@
       <property role="TrG5h" value="my_topic" />
       <ref role="3ttcQw" node="5vG_M9tTS$e" />
       <ref role="3ttcQ_" node="5vG_M9tUmjO" />
-    </node>
-    <node concept="3SpRSB" id="2zGCrUMVSsJ" role="lGtFl">
-      <node concept="2q0c7M" id="2zGCrUMWaCv" role="2q0c7L" />
+      <node concept="1pQMDX" id="5z3fZ2ZX8UT" role="lGtFl">
+        <ref role="1pQMDM" node="5z3fZ2ZX8UW" resolve="wifi_connection" />
+      </node>
     </node>
   </node>
   <node concept="3tteAz" id="5vG_M9tUmjd">
@@ -194,6 +208,23 @@
       <property role="1T6LxX" value="378Eyp8OV9o/Output" />
       <property role="TrG5h" value="pub_d" />
       <node concept="10Oyi0" id="5vG_M9tUmjx" role="17RAGi" />
+    </node>
+  </node>
+  <node concept="1wihRA" id="5z3fZ2ZX8UV">
+    <property role="TrG5h" value="kinova_arm" />
+    <node concept="lVhbz" id="5z3fZ2ZX8V0" role="1wihR_">
+      <property role="TrG5h" value="wifi_connection" />
+      <node concept="lVhbw" id="5z3fZ2ZX8V1" role="lVhbm">
+        <property role="TrG5h" value="reliability" />
+        <property role="lVhbH" value="best_effort" />
+      </node>
+    </node>
+    <node concept="12LBoC" id="5z3fZ2ZX8UW" role="12LBoH">
+      <property role="TrG5h" value="wifi_connection" />
+      <node concept="lVhbw" id="5z3fZ2ZX8UX" role="12LC2v">
+        <property role="TrG5h" value="delay" />
+        <property role="lVhbH" value="5" />
+      </node>
     </node>
   </node>
 </model>

@@ -99,6 +99,11 @@
       <property role="20lbJX" value="fLJekj6/_1__n" />
       <ref role="20lvS9" to="l1zz:30W4IWrNIUo" resolve="IPortRef" />
     </node>
+    <node concept="1TJgyi" id="5z3fZ2ZXEXm" role="1TKVEl">
+      <property role="IQ2nx" value="6396026199041552214" />
+      <property role="TrG5h" value="type" />
+      <ref role="AX2Wp" to="l1zz:6U$LN6klUVz" resolve="IOType" />
+    </node>
   </node>
   <node concept="1TIwiD" id="2bKDnfq_XHk">
     <property role="EcuMT" value="2517694108707314516" />
