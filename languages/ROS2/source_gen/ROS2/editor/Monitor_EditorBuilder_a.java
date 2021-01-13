@@ -18,8 +18,8 @@ import jetbrains.mps.openapi.editor.style.Style;
 import jetbrains.mps.editor.runtime.style.StyleImpl;
 import jetbrains.mps.editor.runtime.style.StyleAttributes;
 import jetbrains.mps.nodeEditor.cells.EditorCell_Constant;
-import jetbrains.mps.nodeEditor.cellLayout.CellLayout_Vertical;
 import jetbrains.mps.nodeEditor.cellProviders.AbstractCellListHandler;
+import jetbrains.mps.nodeEditor.cellLayout.CellLayout_Vertical;
 import jetbrains.mps.lang.editor.cellProviders.RefNodeListHandler;
 import org.jetbrains.mps.openapi.language.SContainmentLink;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
@@ -57,7 +57,7 @@ import org.jetbrains.mps.openapi.language.SConcept;
     editorCell.addEditorCell(createAttributedNodeCell_0());
     editorCell.addEditorCell(createEmpty_0());
     editorCell.addEditorCell(createConstant_0());
-    editorCell.addEditorCell(createCollection_1());
+    editorCell.addEditorCell(createRefNodeList_0());
     return editorCell;
   }
   private EditorCell createAttributedNodeCell_0() {
@@ -85,31 +85,22 @@ import org.jetbrains.mps.openapi.language.SConcept;
     editorCell.setDefaultText("");
     return editorCell;
   }
-  private EditorCell createCollection_1() {
-    EditorCell_Collection editorCell = new EditorCell_Collection(getEditorContext(), myNode, new CellLayout_Vertical());
-    editorCell.setCellId("Collection_2vod95_d0");
+  private EditorCell createRefNodeList_0() {
+    AbstractCellListHandler handler = new topicsListHandler_2vod95_d0(myNode, getEditorContext());
+    EditorCell_Collection editorCell = handler.createCells(new CellLayout_Vertical(), false);
+    editorCell.setCellId("refNodeList_topics");
     Style style = new StyleImpl();
     style.set(StyleAttributes.INDENT_LAYOUT_ON_NEW_LINE, true);
     style.set(StyleAttributes.INDENT_LAYOUT_INDENT, true);
     editorCell.getStyle().putAll(style);
-    editorCell.addEditorCell(createRefNodeList_0());
-    return editorCell;
-  }
-  private EditorCell createRefNodeList_0() {
-    AbstractCellListHandler handler = new topicsListHandler_2vod95_a3a(myNode, getEditorContext());
-    EditorCell_Collection editorCell = handler.createCells(new CellLayout_Indent(), false);
-    editorCell.setCellId("refNodeList_topics");
-    Style style = new StyleImpl();
-    style.set(StyleAttributes.INDENT_LAYOUT_ON_NEW_LINE, true);
-    editorCell.getStyle().putAll(style);
     editorCell.setSRole(handler.getElementSRole());
     return editorCell;
   }
-  private static class topicsListHandler_2vod95_a3a extends RefNodeListHandler {
+  private static class topicsListHandler_2vod95_d0 extends RefNodeListHandler {
     @NotNull
     private SNode myNode;
 
-    public topicsListHandler_2vod95_a3a(SNode ownerNode, EditorContext context) {
+    public topicsListHandler_2vod95_d0(SNode ownerNode, EditorContext context) {
       super(context, false);
       myNode = ownerNode;
     }
@@ -122,7 +113,7 @@ import org.jetbrains.mps.openapi.language.SConcept;
       return LINKS.topics$E4TW;
     }
     public SAbstractConcept getChildSConcept() {
-      return CONCEPTS.TopicRef$Az;
+      return CONCEPTS.ConnectionRef$HJ;
     }
 
     public EditorCell createNodeCell(SNode elementNode) {
@@ -132,7 +123,7 @@ import org.jetbrains.mps.openapi.language.SConcept;
     }
     public EditorCell createEmptyCell() {
       getCellFactory().pushCellContext();
-      getCellFactory().setNodeLocation(new SNodeLocation.FromParentAndLink(topicsListHandler_2vod95_a3a.this.getNode(), LINKS.topics$E4TW));
+      getCellFactory().setNodeLocation(new SNodeLocation.FromParentAndLink(topicsListHandler_2vod95_d0.this.getNode(), LINKS.topics$E4TW));
       try {
         EditorCell emptyCell = null;
         emptyCell = super.createEmptyCell();
@@ -178,6 +169,6 @@ import org.jetbrains.mps.openapi.language.SConcept;
   }
 
   private static final class CONCEPTS {
-    /*package*/ static final SConcept TopicRef$Az = MetaAdapterFactory.getConcept(0x73f2d64e927d48dcL, 0x89c7793f38431f94L, 0x28eca1beb2ec604cL, "ROS2.structure.TopicRef");
+    /*package*/ static final SConcept ConnectionRef$HJ = MetaAdapterFactory.getConcept(0x73f2d64e927d48dcL, 0x89c7793f38431f94L, 0x6b677cc61c2acea1L, "ROS2.structure.ConnectionRef");
   }
 }

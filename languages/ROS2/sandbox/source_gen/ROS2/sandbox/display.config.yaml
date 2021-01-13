@@ -1,0 +1,6 @@
+# configuration file for display
+
+display:
+    ros__parameters:
+        width: 480
+        height: 320

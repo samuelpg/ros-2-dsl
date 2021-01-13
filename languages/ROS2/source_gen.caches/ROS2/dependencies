@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <dependenciesRoot>
   <dependency className="ROS2.Language">
+    <classNode dependClassName="ROS2.constraints.ConstraintsAspectDescriptor" />
     <classNode dependClassName="ROS2.editor.EditorAspectDescriptorImpl" />
     <classNode dependClassName="ROS2.intentions.IntentionsDescriptor" />
     <classNode dependClassName="ROS2.structure.ConceptPresentationAspectImpl" />
@@ -17,6 +18,7 @@
     <classNode dependClassName="jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory" />
     <classNode dependClassName="jetbrains.mps.smodel.language.LanguageExtensions" />
     <classNode dependClassName="jetbrains.mps.smodel.runtime.ConceptPresentationAspect" />
+    <classNode dependClassName="jetbrains.mps.smodel.runtime.ConstraintsAspectDescriptor" />
     <classNode dependClassName="jetbrains.mps.smodel.runtime.ILanguageAspect" />
     <classNode dependClassName="jetbrains.mps.smodel.runtime.StructureAspectDescriptor" />
     <classNode dependClassName="org.jetbrains.annotations.NotNull" />

@@ -12,7 +12,6 @@
   </facets>
   <sourcePath />
   <dependencies>
-    <dependency reexport="false">a8f70f9e-ef01-499f-885c-c79273fa1695(Algorithm)</dependency>
     <dependency reexport="false">218e40b4-75d4-4de8-83e6-b31e4da8bcee(Component)</dependency>
     <dependency reexport="false">6d222813-53ea-440e-ba30-23ced4b723f0(QoS)</dependency>
     <dependency reexport="false">73f2d64e-927d-48dc-89c7-793f38431f94(ROS2)</dependency>
@@ -21,6 +20,7 @@
     <language slang="l:a8f70f9e-ef01-499f-885c-c79273fa1695:Algorithm" version="0" />
     <language slang="l:4cc07462-84b3-4d01-8adb-629ddd3cebd4:Capabilities" version="0" />
     <language slang="l:218e40b4-75d4-4de8-83e6-b31e4da8bcee:Component" version="0" />
+    <language slang="l:331f7a18-c657-4dd7-8707-42124f20f67b:DDS" version="0" />
     <language slang="l:6d222813-53ea-440e-ba30-23ced4b723f0:QoS" version="0" />
     <language slang="l:73f2d64e-927d-48dc-89c7-793f38431f94:ROS2" version="0" />
     <language slang="l:f3061a53-9226-4cc5-a443-f952ceaf5816:jetbrains.mps.baseLanguage" version="11" />

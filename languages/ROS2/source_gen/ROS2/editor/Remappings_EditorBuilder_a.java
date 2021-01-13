@@ -15,8 +15,8 @@ import jetbrains.mps.nodeEditor.cells.EditorCell_Constant;
 import jetbrains.mps.openapi.editor.style.Style;
 import jetbrains.mps.editor.runtime.style.StyleImpl;
 import jetbrains.mps.editor.runtime.style.StyleAttributes;
-import jetbrains.mps.nodeEditor.cellLayout.CellLayout_Vertical;
 import jetbrains.mps.nodeEditor.cellProviders.AbstractCellListHandler;
+import jetbrains.mps.nodeEditor.cellLayout.CellLayout_Vertical;
 import jetbrains.mps.lang.editor.cellProviders.RefNodeListHandler;
 import org.jetbrains.mps.openapi.language.SContainmentLink;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
@@ -55,8 +55,7 @@ import org.jetbrains.mps.openapi.language.SConcept;
     setCellContext(editorCell);
     editorCell.addEditorCell(createAttributedNodeCell_0());
     editorCell.addEditorCell(createConstant_0());
-    editorCell.addEditorCell(createCollection_1());
-    editorCell.addEditorCell(createConstant_1());
+    editorCell.addEditorCell(createRefNodeList_0());
     return editorCell;
   }
   private EditorCell createAttributedNodeCell_0() {
@@ -65,7 +64,7 @@ import org.jetbrains.mps.openapi.language.SConcept;
     return editorCell;
   }
   private EditorCell createConstant_0() {
-    EditorCell_Constant editorCell = new EditorCell_Constant(getEditorContext(), myNode, "{ requirements:");
+    EditorCell_Constant editorCell = new EditorCell_Constant(getEditorContext(), myNode, "remapping:");
     editorCell.setCellId("Constant_ufp94q_b0");
     Style style = new StyleImpl();
     style.set(StyleAttributes.INDENT_LAYOUT_ON_NEW_LINE, true);
@@ -74,28 +73,22 @@ import org.jetbrains.mps.openapi.language.SConcept;
     editorCell.setDefaultText("");
     return editorCell;
   }
-  private EditorCell createCollection_1() {
-    EditorCell_Collection editorCell = new EditorCell_Collection(getEditorContext(), myNode, new CellLayout_Vertical());
-    editorCell.setCellId("Collection_ufp94q_c0");
-    Style style = new StyleImpl();
-    style.set(StyleAttributes.INDENT_LAYOUT_ON_NEW_LINE, true);
-    style.set(StyleAttributes.INDENT_LAYOUT_INDENT, true);
-    editorCell.getStyle().putAll(style);
-    editorCell.addEditorCell(createRefNodeList_0());
-    return editorCell;
-  }
   private EditorCell createRefNodeList_0() {
-    AbstractCellListHandler handler = new remappingsListHandler_ufp94q_a2a(myNode, getEditorContext());
+    AbstractCellListHandler handler = new remappingsListHandler_ufp94q_c0(myNode, getEditorContext());
     EditorCell_Collection editorCell = handler.createCells(new CellLayout_Vertical(), false);
     editorCell.setCellId("refNodeList_remappings");
+    Style style = new StyleImpl();
+    style.set(StyleAttributes.INDENT_LAYOUT_NEW_LINE, true);
+    style.set(StyleAttributes.INDENT_LAYOUT_INDENT, true);
+    editorCell.getStyle().putAll(style);
     editorCell.setSRole(handler.getElementSRole());
     return editorCell;
   }
-  private static class remappingsListHandler_ufp94q_a2a extends RefNodeListHandler {
+  private static class remappingsListHandler_ufp94q_c0 extends RefNodeListHandler {
     @NotNull
     private SNode myNode;
 
-    public remappingsListHandler_ufp94q_a2a(SNode ownerNode, EditorContext context) {
+    public remappingsListHandler_ufp94q_c0(SNode ownerNode, EditorContext context) {
       super(context, false);
       myNode = ownerNode;
     }
@@ -108,7 +101,7 @@ import org.jetbrains.mps.openapi.language.SConcept;
       return LINKS.remappings$v1W_;
     }
     public SAbstractConcept getChildSConcept() {
-      return CONCEPTS.Argument$XW;
+      return CONCEPTS.RemappingArgument$XW;
     }
 
     public EditorCell createNodeCell(SNode elementNode) {
@@ -118,7 +111,7 @@ import org.jetbrains.mps.openapi.language.SConcept;
     }
     public EditorCell createEmptyCell() {
       getCellFactory().pushCellContext();
-      getCellFactory().setNodeLocation(new SNodeLocation.FromParentAndLink(remappingsListHandler_ufp94q_a2a.this.getNode(), LINKS.remappings$v1W_));
+      getCellFactory().setNodeLocation(new SNodeLocation.FromParentAndLink(remappingsListHandler_ufp94q_c0.this.getNode(), LINKS.remappings$v1W_));
       try {
         EditorCell emptyCell = null;
         emptyCell = super.createEmptyCell();
@@ -158,22 +151,12 @@ import org.jetbrains.mps.openapi.language.SConcept;
       }
     }
   }
-  private EditorCell createConstant_1() {
-    EditorCell_Constant editorCell = new EditorCell_Constant(getEditorContext(), myNode, "}");
-    editorCell.setCellId("Constant_ufp94q_d0");
-    Style style = new StyleImpl();
-    style.set(StyleAttributes.INDENT_LAYOUT_ON_NEW_LINE, true);
-    style.set(StyleAttributes.INDENT_LAYOUT_INDENT, true);
-    editorCell.getStyle().putAll(style);
-    editorCell.setDefaultText("");
-    return editorCell;
-  }
 
   private static final class LINKS {
     /*package*/ static final SContainmentLink remappings$v1W_ = MetaAdapterFactory.getContainmentLink(0x73f2d64e927d48dcL, 0x89c7793f38431f94L, 0x22f0a573da97db55L, 0x31ec195a6838a2b4L, "remappings");
   }
 
   private static final class CONCEPTS {
-    /*package*/ static final SConcept Argument$XW = MetaAdapterFactory.getConcept(0x73f2d64e927d48dcL, 0x89c7793f38431f94L, 0x31ec195a6838a2aeL, "ROS2.structure.Argument");
+    /*package*/ static final SConcept RemappingArgument$XW = MetaAdapterFactory.getConcept(0x73f2d64e927d48dcL, 0x89c7793f38431f94L, 0x31ec195a6838a2aeL, "ROS2.structure.RemappingArgument");
   }
 }

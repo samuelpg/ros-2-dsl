@@ -26,6 +26,8 @@
       <external-templates />
       <dependencies>
         <dependency reexport="false">990507d3-3527-4c54-bfe9-0ca3c9c6247a(com.dslfoundry.plaintextgen)</dependency>
+        <dependency reexport="false">218e40b4-75d4-4de8-83e6-b31e4da8bcee(Component)</dependency>
+        <dependency reexport="false">6d222813-53ea-440e-ba30-23ced4b723f0(QoS)</dependency>
       </dependencies>
       <languageVersions>
         <language slang="l:990507d3-3527-4c54-bfe9-0ca3c9c6247a:com.dslfoundry.plaintextgen" version="0" />
@@ -53,6 +55,7 @@
         <module reference="6354ebe7-c22a-4a0f-ac54-50b52ab9b065(JDK)" version="0" />
         <module reference="6ed54515-acc8-4d1e-a16c-9fd6cfe951ea(MPS.Core)" version="0" />
         <module reference="8865b7a8-5271-43d3-884c-6fd1d9cfdd34(MPS.OpenAPI)" version="0" />
+        <module reference="6d222813-53ea-440e-ba30-23ced4b723f0(QoS)" version="0" />
         <module reference="ae01db02-0e82-4048-a6df-46767ad0e671(ROS2)" version="0" />
         <module reference="73f2d64e-927d-48dc-89c7-793f38431f94(ROS2)" version="0" />
         <module reference="990507d3-3527-4c54-bfe9-0ca3c9c6247a(com.dslfoundry.plaintextgen)" version="0" />
@@ -71,6 +74,7 @@
   <dependencies>
     <dependency reexport="false">218e40b4-75d4-4de8-83e6-b31e4da8bcee(Component)</dependency>
     <dependency reexport="false">6d222813-53ea-440e-ba30-23ced4b723f0(QoS)</dependency>
+    <dependency reexport="false">331f7a18-c657-4dd7-8707-42124f20f67b(DDS)</dependency>
   </dependencies>
   <languageVersions>
     <language slang="l:f3061a53-9226-4cc5-a443-f952ceaf5816:jetbrains.mps.baseLanguage" version="11" />
@@ -113,6 +117,7 @@
     <module reference="3f233e7f-b8a6-46d2-a57f-795d56775243(Annotations)" version="0" />
     <module reference="4cc07462-84b3-4d01-8adb-629ddd3cebd4(Capabilities)" version="0" />
     <module reference="218e40b4-75d4-4de8-83e6-b31e4da8bcee(Component)" version="0" />
+    <module reference="331f7a18-c657-4dd7-8707-42124f20f67b(DDS)" version="0" />
     <module reference="6354ebe7-c22a-4a0f-ac54-50b52ab9b065(JDK)" version="0" />
     <module reference="6ed54515-acc8-4d1e-a16c-9fd6cfe951ea(MPS.Core)" version="0" />
     <module reference="8865b7a8-5271-43d3-884c-6fd1d9cfdd34(MPS.OpenAPI)" version="0" />

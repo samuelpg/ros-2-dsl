@@ -4,24 +4,42 @@ package ROS2.structure;
 
 import jetbrains.mps.smodel.runtime.BaseStructureAspectDescriptor;
 import jetbrains.mps.smodel.runtime.ConceptDescriptor;
+import jetbrains.mps.smodel.runtime.EnumerationDescriptor;
 import java.util.Collection;
 import java.util.Arrays;
 import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.smodel.adapter.ids.SConceptId;
+import jetbrains.mps.smodel.runtime.DataTypeDescriptor;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
 import jetbrains.mps.smodel.runtime.impl.ConceptDescriptorBuilder2;
+import jetbrains.mps.smodel.adapter.ids.MetaIdFactory;
 import jetbrains.mps.smodel.adapter.ids.PrimitiveTypeId;
+import jetbrains.mps.smodel.runtime.ConceptKind;
+import jetbrains.mps.smodel.runtime.StaticScope;
 
 public class StructureAspectDescriptor extends BaseStructureAspectDescriptor {
-  /*package*/ final ConceptDescriptor myConceptAction = createDescriptorForAction();
-  /*package*/ final ConceptDescriptor myConceptArgument = createDescriptorForArgument();
+  /*package*/ final ConceptDescriptor myConceptActionDefinition = createDescriptorForActionDefinition();
   /*package*/ final ConceptDescriptor myConceptCapabilityProfileAnnotation = createDescriptorForCapabilityProfileAnnotation();
+  /*package*/ final ConceptDescriptor myConceptClientPort = createDescriptorForClientPort();
+  /*package*/ final ConceptDescriptor myConceptClientPortRef = createDescriptorForClientPortRef();
+  /*package*/ final ConceptDescriptor myConceptConnectionRef = createDescriptorForConnectionRef();
+  /*package*/ final ConceptDescriptor myConceptDefaultQoS = createDescriptorForDefaultQoS();
+  /*package*/ final ConceptDescriptor myConceptIOperationPort = createDescriptorForIOperationPort();
+  /*package*/ final ConceptDescriptor myConceptMessageDefinition = createDescriptorForMessageDefinition();
+  /*package*/ final ConceptDescriptor myConceptMessageTypeRef = createDescriptorForMessageTypeRef();
   /*package*/ final ConceptDescriptor myConceptMonitor = createDescriptorForMonitor();
   /*package*/ final ConceptDescriptor myConceptNamespace = createDescriptorForNamespace();
+  /*package*/ final ConceptDescriptor myConceptOperationConnector = createDescriptorForOperationConnector();
+  /*package*/ final ConceptDescriptor myConceptOperationConnectorAnnotation = createDescriptorForOperationConnectorAnnotation();
+  /*package*/ final ConceptDescriptor myConceptOperationPortRef = createDescriptorForOperationPortRef();
+  /*package*/ final ConceptDescriptor myConceptOperationPorts = createDescriptorForOperationPorts();
+  /*package*/ final ConceptDescriptor myConceptROSDefinitions = createDescriptorForROSDefinitions();
+  /*package*/ final ConceptDescriptor myConceptRemappingArgument = createDescriptorForRemappingArgument();
   /*package*/ final ConceptDescriptor myConceptRemappings = createDescriptorForRemappings();
   /*package*/ final ConceptDescriptor myConceptRequirementsProfileAnnotation = createDescriptorForRequirementsProfileAnnotation();
-  /*package*/ final ConceptDescriptor myConceptTopic = createDescriptorForTopic();
-  /*package*/ final ConceptDescriptor myConceptTopicRef = createDescriptorForTopicRef();
+  /*package*/ final ConceptDescriptor myConceptServerPort = createDescriptorForServerPort();
+  /*package*/ final ConceptDescriptor myConceptServiceDefinion = createDescriptorForServiceDefinion();
+  /*package*/ final EnumerationDescriptor myEnumerationPortOperationType = new EnumerationDescriptor_PortOperationType();
   private final LanguageConceptSwitch myIndexSwitch;
 
   public StructureAspectDescriptor() {
@@ -31,65 +49,86 @@ public class StructureAspectDescriptor extends BaseStructureAspectDescriptor {
 
   @Override
   public void reportDependencies(jetbrains.mps.smodel.runtime.StructureAspectDescriptor.Dependencies deps) {
+    deps.extendedLanguage(0x218e40b475d44de8L, 0x83e6b31e4da8bceeL, "Component");
     deps.extendedLanguage(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, "jetbrains.mps.lang.core");
-    deps.aggregatedLanguage(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, "jetbrains.mps.baseLanguage");
+    deps.extendedLanguage(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, "jetbrains.mps.baseLanguage");
     deps.aggregatedLanguage(0x218e40b475d44de8L, 0x83e6b31e4da8bceeL, "Component");
   }
 
   @Override
   public Collection<ConceptDescriptor> getDescriptors() {
-    return Arrays.asList(myConceptAction, myConceptArgument, myConceptCapabilityProfileAnnotation, myConceptMonitor, myConceptNamespace, myConceptRemappings, myConceptRequirementsProfileAnnotation, myConceptTopic, myConceptTopicRef);
+    return Arrays.asList(myConceptActionDefinition, myConceptCapabilityProfileAnnotation, myConceptClientPort, myConceptClientPortRef, myConceptConnectionRef, myConceptDefaultQoS, myConceptIOperationPort, myConceptMessageDefinition, myConceptMessageTypeRef, myConceptMonitor, myConceptNamespace, myConceptOperationConnector, myConceptOperationConnectorAnnotation, myConceptOperationPortRef, myConceptOperationPorts, myConceptROSDefinitions, myConceptRemappingArgument, myConceptRemappings, myConceptRequirementsProfileAnnotation, myConceptServerPort, myConceptServiceDefinion);
   }
 
   @Override
   @Nullable
   public ConceptDescriptor getDescriptor(SConceptId id) {
     switch (myIndexSwitch.index(id)) {
-      case LanguageConceptSwitch.Action:
-        return myConceptAction;
-      case LanguageConceptSwitch.Argument:
-        return myConceptArgument;
+      case LanguageConceptSwitch.ActionDefinition:
+        return myConceptActionDefinition;
       case LanguageConceptSwitch.CapabilityProfileAnnotation:
         return myConceptCapabilityProfileAnnotation;
+      case LanguageConceptSwitch.ClientPort:
+        return myConceptClientPort;
+      case LanguageConceptSwitch.ClientPortRef:
+        return myConceptClientPortRef;
+      case LanguageConceptSwitch.ConnectionRef:
+        return myConceptConnectionRef;
+      case LanguageConceptSwitch.DefaultQoS:
+        return myConceptDefaultQoS;
+      case LanguageConceptSwitch.IOperationPort:
+        return myConceptIOperationPort;
+      case LanguageConceptSwitch.MessageDefinition:
+        return myConceptMessageDefinition;
+      case LanguageConceptSwitch.MessageTypeRef:
+        return myConceptMessageTypeRef;
       case LanguageConceptSwitch.Monitor:
         return myConceptMonitor;
       case LanguageConceptSwitch.Namespace:
         return myConceptNamespace;
+      case LanguageConceptSwitch.OperationConnector:
+        return myConceptOperationConnector;
+      case LanguageConceptSwitch.OperationConnectorAnnotation:
+        return myConceptOperationConnectorAnnotation;
+      case LanguageConceptSwitch.OperationPortRef:
+        return myConceptOperationPortRef;
+      case LanguageConceptSwitch.OperationPorts:
+        return myConceptOperationPorts;
+      case LanguageConceptSwitch.ROSDefinitions:
+        return myConceptROSDefinitions;
+      case LanguageConceptSwitch.RemappingArgument:
+        return myConceptRemappingArgument;
       case LanguageConceptSwitch.Remappings:
         return myConceptRemappings;
       case LanguageConceptSwitch.RequirementsProfileAnnotation:
         return myConceptRequirementsProfileAnnotation;
-      case LanguageConceptSwitch.Topic:
-        return myConceptTopic;
-      case LanguageConceptSwitch.TopicRef:
-        return myConceptTopicRef;
+      case LanguageConceptSwitch.ServerPort:
+        return myConceptServerPort;
+      case LanguageConceptSwitch.ServiceDefinion:
+        return myConceptServiceDefinion;
       default:
         return null;
     }
   }
 
+  @Override
+  public Collection<DataTypeDescriptor> getDataTypeDescriptors() {
+    return Arrays.asList(myEnumerationPortOperationType);
+  }
 
   /*package*/ int internalIndex(SAbstractConcept c) {
     return myIndexSwitch.index(c);
   }
 
-  private static ConceptDescriptor createDescriptorForAction() {
-    ConceptDescriptorBuilder2 b = new ConceptDescriptorBuilder2("ROS2", "Action", 0x73f2d64e927d48dcL, 0x89c7793f38431f94L, 0x22f0a573da97db56L);
+  private static ConceptDescriptor createDescriptorForActionDefinition() {
+    ConceptDescriptorBuilder2 b = new ConceptDescriptorBuilder2("ROS2", "ActionDefinition", 0x73f2d64e927d48dcL, 0x89c7793f38431f94L, 0x22f0a573da97db56L);
     b.class_(false, false, false);
-    b.super_("jetbrains.mps.lang.core.structure.NodeAttribute", 0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x2eb1ad060897da54L);
+    b.super_("Component.structure.Operation", 0x218e40b475d44de8L, 0x83e6b31e4da8bceeL, 0x17882579cafccce9L);
+    b.parent(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L);
     b.origin("r:1882f704-9bf3-465f-a74a-418192e19224(ROS2.structure)/2517694108707314518");
     b.version(2);
-    b.aggregate("feedback", 0x6be9d018b214af9bL).target(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c37f506dL).optional(true).ordered(true).multiple(false).origin("7775975036117364635").done();
-    return b.create();
-  }
-  private static ConceptDescriptor createDescriptorForArgument() {
-    ConceptDescriptorBuilder2 b = new ConceptDescriptorBuilder2("ROS2", "Argument", 0x73f2d64e927d48dcL, 0x89c7793f38431f94L, 0x31ec195a6838a2aeL);
-    b.class_(false, false, false);
-    b.origin("r:1882f704-9bf3-465f-a74a-418192e19224(ROS2.structure)/3597278078448476846");
-    b.version(2);
-    b.property("original", 0x31ec195a6838a2afL).type(PrimitiveTypeId.STRING).origin("3597278078448476847").done();
-    b.property("remapping", 0x31ec195a6838a2b1L).type(PrimitiveTypeId.STRING).origin("3597278078448476849").done();
-    b.alias("argument remap");
+    b.aggregate("feedback", 0x6be9d018b214af9bL).target(0x218e40b475d44de8L, 0x83e6b31e4da8bceeL, 0x4ee76d8be7755bfcL).optional(true).ordered(true).multiple(true).origin("7775975036117364635").done();
+    b.aggregate("result", 0x2cc4976fc5342154L).target(0x218e40b475d44de8L, 0x83e6b31e4da8bceeL, 0x4ee76d8be7755bfcL).optional(true).ordered(true).multiple(true).origin("3225869739409809748").done();
     return b.create();
   }
   private static ConceptDescriptor createDescriptorForCapabilityProfileAnnotation() {
@@ -101,13 +140,82 @@ public class StructureAspectDescriptor extends BaseStructureAspectDescriptor {
     b.associate("profile", 0x31ec195a68373325L).target(0x6d22281353ea440eL, 0xba3023ced4b723f0L, 0x75d27ff7603f6d14L).optional(false).origin("3597278078448382757").done();
     return b.create();
   }
+  private static ConceptDescriptor createDescriptorForClientPort() {
+    ConceptDescriptorBuilder2 b = new ConceptDescriptorBuilder2("ROS2", "ClientPort", 0x73f2d64e927d48dcL, 0x89c7793f38431f94L, 0x2cc4976fc5328c81L);
+    b.class_(false, false, false);
+    b.parent(0x73f2d64e927d48dcL, 0x89c7793f38431f94L, 0x2cc4976fc53337a5L);
+    b.origin("r:1882f704-9bf3-465f-a74a-418192e19224(ROS2.structure)/3225869739409706113");
+    b.version(2);
+    return b.create();
+  }
+  private static ConceptDescriptor createDescriptorForClientPortRef() {
+    ConceptDescriptorBuilder2 b = new ConceptDescriptorBuilder2("ROS2", "ClientPortRef", 0x73f2d64e927d48dcL, 0x89c7793f38431f94L, 0x69023be9ff8032b6L);
+    b.class_(false, false, false);
+    b.origin("r:1882f704-9bf3-465f-a74a-418192e19224(ROS2.structure)/7566676200135865014");
+    b.version(2);
+    b.associate("ref", 0x69023be9ff8032b7L).target(0x73f2d64e927d48dcL, 0x89c7793f38431f94L, 0x2cc4976fc5328c81L).optional(false).origin("7566676200135865015").done();
+    return b.create();
+  }
+  private static ConceptDescriptor createDescriptorForConnectionRef() {
+    ConceptDescriptorBuilder2 b = new ConceptDescriptorBuilder2("ROS2", "ConnectionRef", 0x73f2d64e927d48dcL, 0x89c7793f38431f94L, 0x6b677cc61c2acea1L);
+    b.class_(false, false, false);
+    b.origin("r:1882f704-9bf3-465f-a74a-418192e19224(ROS2.structure)/7739291674977423009");
+    b.version(2);
+    b.associate("ref", 0x6b677cc61c2acea2L).target(0x218e40b475d44de8L, 0x83e6b31e4da8bceeL, 0x17882579cafcccdcL).optional(false).origin("7739291674977423010").done();
+    return b.create();
+  }
+  private static ConceptDescriptor createDescriptorForDefaultQoS() {
+    ConceptDescriptorBuilder2 b = new ConceptDescriptorBuilder2("ROS2", "DefaultQoS", 0x73f2d64e927d48dcL, 0x89c7793f38431f94L, 0x3717cb3de2d53f21L);
+    b.class_(false, false, false);
+    b.super_("jetbrains.mps.lang.core.structure.NodeAttribute", 0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x2eb1ad060897da54L);
+    b.origin("r:1882f704-9bf3-465f-a74a-418192e19224(ROS2.structure)/3969865063209451297");
+    b.version(2);
+    b.property("history", 0x3717cb3de2d53f98L).type(MetaIdFactory.dataTypeId(0x331f7a18c6574dd7L, 0x870742124f20f67bL, 0x7358ab7c0bd70c64L)).origin("3969865063209451416").done();
+    b.property("reliability", 0x3717cb3de2d53f9aL).type(MetaIdFactory.dataTypeId(0x331f7a18c6574dd7L, 0x870742124f20f67bL, 0x7358ab7c0bd70c5eL)).origin("3969865063209451418").done();
+    b.property("liveliness", 0x3717cb3de2d53f9dL).type(MetaIdFactory.dataTypeId(0x331f7a18c6574dd7L, 0x870742124f20f67bL, 0x7358ab7c0bd70c6eL)).origin("3969865063209451421").done();
+    b.property("durability", 0x3717cb3de2d53fa1L).type(MetaIdFactory.dataTypeId(0x331f7a18c6574dd7L, 0x870742124f20f67bL, 0x7358ab7c0bd70c69L)).origin("3969865063209451425").done();
+    b.property("depth", 0x3717cb3de2d53fa6L).type(PrimitiveTypeId.INTEGER).origin("3969865063209451430").done();
+    b.property("lease", 0x3717cb3de2d53facL).type(PrimitiveTypeId.INTEGER).origin("3969865063209451436").done();
+    b.property("lifespan", 0x3717cb3de2d53fb3L).type(PrimitiveTypeId.INTEGER).origin("3969865063209451443").done();
+    b.property("deadline", 0x3717cb3de2d54165L).type(PrimitiveTypeId.INTEGER).origin("3969865063209451877").done();
+    return b.create();
+  }
+  private static ConceptDescriptor createDescriptorForIOperationPort() {
+    ConceptDescriptorBuilder2 b = new ConceptDescriptorBuilder2("ROS2", "IOperationPort", 0x73f2d64e927d48dcL, 0x89c7793f38431f94L, 0x2cc4976fc53337a5L);
+    b.interface_();
+    b.parent(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L);
+    b.origin("r:1882f704-9bf3-465f-a74a-418192e19224(ROS2.structure)/3225869739409749934");
+    b.version(2);
+    b.aggregate("operation", 0x69023be9ff779f2aL).target(0x73f2d64e927d48dcL, 0x89c7793f38431f94L, 0x69023be9ff7a5d38L).optional(false).ordered(true).multiple(false).origin("7566676200135302954").done();
+    return b.create();
+  }
+  private static ConceptDescriptor createDescriptorForMessageDefinition() {
+    ConceptDescriptorBuilder2 b = new ConceptDescriptorBuilder2("ROS2", "MessageDefinition", 0x73f2d64e927d48dcL, 0x89c7793f38431f94L, 0x6b677cc61c023dd1L);
+    b.class_(false, false, false);
+    b.parent(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L);
+    b.origin("r:1882f704-9bf3-465f-a74a-418192e19224(ROS2.structure)/7739291674974764497");
+    b.version(2);
+    b.property("package", 0x6b677cc61c023dd2L).type(PrimitiveTypeId.STRING).origin("7739291674974764498").done();
+    b.aggregate("field", 0x6b677cc61c023dd4L).target(0x218e40b475d44de8L, 0x83e6b31e4da8bceeL, 0x4ee76d8be7755bfcL).optional(true).ordered(true).multiple(true).origin("7739291674974764500").done();
+    return b.create();
+  }
+  private static ConceptDescriptor createDescriptorForMessageTypeRef() {
+    ConceptDescriptorBuilder2 b = new ConceptDescriptorBuilder2("ROS2", "MessageTypeRef", 0x73f2d64e927d48dcL, 0x89c7793f38431f94L, 0x6b677cc61c077ee4L);
+    b.class_(false, false, false);
+    b.super_("jetbrains.mps.baseLanguage.structure.Type", 0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c37f506dL);
+    b.origin("r:1882f704-9bf3-465f-a74a-418192e19224(ROS2.structure)/7739291674975108836");
+    b.version(2);
+    b.associate("ref", 0x6b677cc61c077ee5L).target(0x73f2d64e927d48dcL, 0x89c7793f38431f94L, 0x6b677cc61c023dd1L).optional(false).origin("7739291674975108837").done();
+    b.kind(ConceptKind.INTERFACE, StaticScope.GLOBAL);
+    return b.create();
+  }
   private static ConceptDescriptor createDescriptorForMonitor() {
     ConceptDescriptorBuilder2 b = new ConceptDescriptorBuilder2("ROS2", "Monitor", 0x73f2d64e927d48dcL, 0x89c7793f38431f94L, 0x22f0a573da97db54L);
     b.class_(false, false, false);
     b.super_("jetbrains.mps.lang.core.structure.NodeAttribute", 0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x2eb1ad060897da54L);
     b.origin("r:1882f704-9bf3-465f-a74a-418192e19224(ROS2.structure)/2517694108707314516");
     b.version(2);
-    b.aggregate("topics", 0x28eca1beb2ec604fL).target(0x73f2d64e927d48dcL, 0x89c7793f38431f94L, 0x28eca1beb2ec604cL).optional(true).ordered(true).multiple(true).origin("2948909696438526031").done();
+    b.aggregate("topics", 0x28eca1beb2ec604fL).target(0x73f2d64e927d48dcL, 0x89c7793f38431f94L, 0x6b677cc61c2acea1L).optional(true).ordered(true).multiple(true).origin("2948909696438526031").done();
     return b.create();
   }
   private static ConceptDescriptor createDescriptorForNamespace() {
@@ -117,6 +225,64 @@ public class StructureAspectDescriptor extends BaseStructureAspectDescriptor {
     b.parent(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L);
     b.origin("r:1882f704-9bf3-465f-a74a-418192e19224(ROS2.structure)/2948909696438878180");
     b.version(2);
+    return b.create();
+  }
+  private static ConceptDescriptor createDescriptorForOperationConnector() {
+    ConceptDescriptorBuilder2 b = new ConceptDescriptorBuilder2("ROS2", "OperationConnector", 0x73f2d64e927d48dcL, 0x89c7793f38431f94L, 0x69023be9ff802cb6L);
+    b.class_(false, false, false);
+    b.parent(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L);
+    b.origin("r:1882f704-9bf3-465f-a74a-418192e19224(ROS2.structure)/7566676200135863478");
+    b.version(2);
+    b.associate("server", 0x69023be9ff827c95L).target(0x73f2d64e927d48dcL, 0x89c7793f38431f94L, 0x2cc4976fc5328c86L).optional(false).origin("7566676200136014997").done();
+    b.aggregate("clients", 0x69023be9ff802cc1L).target(0x73f2d64e927d48dcL, 0x89c7793f38431f94L, 0x69023be9ff8032b6L).optional(false).ordered(true).multiple(true).origin("7566676200135863489").done();
+    return b.create();
+  }
+  private static ConceptDescriptor createDescriptorForOperationConnectorAnnotation() {
+    ConceptDescriptorBuilder2 b = new ConceptDescriptorBuilder2("ROS2", "OperationConnectorAnnotation", 0x73f2d64e927d48dcL, 0x89c7793f38431f94L, 0x69023be9ff80807eL);
+    b.class_(false, false, false);
+    b.super_("jetbrains.mps.lang.core.structure.NodeAttribute", 0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x2eb1ad060897da54L);
+    b.parent(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x33d23ee961a0cbf3L);
+    b.origin("r:1882f704-9bf3-465f-a74a-418192e19224(ROS2.structure)/7566676200135884926");
+    b.version(2);
+    b.aggregate("connections", 0x69023be9ff808095L).target(0x73f2d64e927d48dcL, 0x89c7793f38431f94L, 0x69023be9ff802cb6L).optional(true).ordered(true).multiple(true).origin("7566676200135884949").done();
+    return b.create();
+  }
+  private static ConceptDescriptor createDescriptorForOperationPortRef() {
+    ConceptDescriptorBuilder2 b = new ConceptDescriptorBuilder2("ROS2", "OperationPortRef", 0x73f2d64e927d48dcL, 0x89c7793f38431f94L, 0x69023be9ff7a5d38L);
+    b.class_(false, false, false);
+    b.origin("r:1882f704-9bf3-465f-a74a-418192e19224(ROS2.structure)/7566676200135482680");
+    b.version(2);
+    b.associate("ref", 0x69023be9ff7a5d39L).target(0x218e40b475d44de8L, 0x83e6b31e4da8bceeL, 0x17882579cafccce9L).optional(false).origin("7566676200135482681").done();
+    return b.create();
+  }
+  private static ConceptDescriptor createDescriptorForOperationPorts() {
+    ConceptDescriptorBuilder2 b = new ConceptDescriptorBuilder2("ROS2", "OperationPorts", 0x73f2d64e927d48dcL, 0x89c7793f38431f94L, 0x2cc4976fc53337a2L);
+    b.class_(false, false, false);
+    b.super_("jetbrains.mps.lang.core.structure.NodeAttribute", 0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x2eb1ad060897da54L);
+    b.origin("r:1882f704-9bf3-465f-a74a-418192e19224(ROS2.structure)/3225869739409749922");
+    b.version(2);
+    b.aggregate("ports", 0x2cc4976fc5334d1aL).target(0x73f2d64e927d48dcL, 0x89c7793f38431f94L, 0x2cc4976fc53337a5L).optional(true).ordered(true).multiple(true).origin("3225869739409755418").done();
+    return b.create();
+  }
+  private static ConceptDescriptor createDescriptorForROSDefinitions() {
+    ConceptDescriptorBuilder2 b = new ConceptDescriptorBuilder2("ROS2", "ROSDefinitions", 0x73f2d64e927d48dcL, 0x89c7793f38431f94L, 0x6b677cc61c023d64L);
+    b.class_(false, false, true);
+    b.parent(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L);
+    b.origin("r:1882f704-9bf3-465f-a74a-418192e19224(ROS2.structure)/7739291674974764388");
+    b.version(2);
+    b.aggregate("actions", 0x6b677cc61c023d67L).target(0x73f2d64e927d48dcL, 0x89c7793f38431f94L, 0x22f0a573da97db56L).optional(true).ordered(true).multiple(true).origin("7739291674974764391").done();
+    b.aggregate("services", 0x7e5647a8160926c8L).target(0x73f2d64e927d48dcL, 0x89c7793f38431f94L, 0x7e5647a816092644L).optional(true).ordered(true).multiple(true).origin("9103542484025812680").done();
+    b.aggregate("messages", 0x6b677cc61c023e5fL).target(0x73f2d64e927d48dcL, 0x89c7793f38431f94L, 0x6b677cc61c023dd1L).optional(true).ordered(true).multiple(true).origin("7739291674974764639").done();
+    return b.create();
+  }
+  private static ConceptDescriptor createDescriptorForRemappingArgument() {
+    ConceptDescriptorBuilder2 b = new ConceptDescriptorBuilder2("ROS2", "RemappingArgument", 0x73f2d64e927d48dcL, 0x89c7793f38431f94L, 0x31ec195a6838a2aeL);
+    b.class_(false, false, false);
+    b.origin("r:1882f704-9bf3-465f-a74a-418192e19224(ROS2.structure)/3597278078448476846");
+    b.version(2);
+    b.property("original", 0x31ec195a6838a2afL).type(PrimitiveTypeId.STRING).origin("3597278078448476847").done();
+    b.property("remapping", 0x31ec195a6838a2b1L).type(PrimitiveTypeId.STRING).origin("3597278078448476849").done();
+    b.alias("argument remap");
     return b.create();
   }
   private static ConceptDescriptor createDescriptorForRemappings() {
@@ -134,25 +300,24 @@ public class StructureAspectDescriptor extends BaseStructureAspectDescriptor {
     b.super_("jetbrains.mps.lang.core.structure.NodeAttribute", 0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x2eb1ad060897da54L);
     b.origin("r:1882f704-9bf3-465f-a74a-418192e19224(ROS2.structure)/3597278078448382759");
     b.version(2);
-    b.associate("requirementsProfile", 0x31ec195a68373328L).target(0x6d22281353ea440eL, 0xba3023ced4b723f0L, 0xdbe2d924f785bbaL).optional(false).origin("3597278078448382760").done();
+    b.associate("profile", 0x31ec195a68373328L).target(0x6d22281353ea440eL, 0xba3023ced4b723f0L, 0xdbe2d924f785bbaL).optional(false).origin("3597278078448382760").done();
     return b.create();
   }
-  private static ConceptDescriptor createDescriptorForTopic() {
-    ConceptDescriptorBuilder2 b = new ConceptDescriptorBuilder2("ROS2", "Topic", 0x73f2d64e927d48dcL, 0x89c7793f38431f94L, 0x22f0a573da97db53L);
+  private static ConceptDescriptor createDescriptorForServerPort() {
+    ConceptDescriptorBuilder2 b = new ConceptDescriptorBuilder2("ROS2", "ServerPort", 0x73f2d64e927d48dcL, 0x89c7793f38431f94L, 0x2cc4976fc5328c86L);
     b.class_(false, false, false);
-    b.parent(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L);
-    b.origin("r:1882f704-9bf3-465f-a74a-418192e19224(ROS2.structure)/2517694108707314515");
+    b.parent(0x73f2d64e927d48dcL, 0x89c7793f38431f94L, 0x2cc4976fc53337a5L);
+    b.origin("r:1882f704-9bf3-465f-a74a-418192e19224(ROS2.structure)/3225869739409706118");
     b.version(2);
-    b.aggregate("publishers", 0x6be9d018b217c257L).target(0x218e40b475d44de8L, 0x83e6b31e4da8bceeL, 0x303c12ef1bceee98L).optional(false).ordered(true).multiple(true).origin("7775975036117566039").done();
-    b.aggregate("subscribers", 0x6be9d018b217c259L).target(0x218e40b475d44de8L, 0x83e6b31e4da8bceeL, 0x303c12ef1bceee98L).optional(false).ordered(true).multiple(true).origin("7775975036117566041").done();
     return b.create();
   }
-  private static ConceptDescriptor createDescriptorForTopicRef() {
-    ConceptDescriptorBuilder2 b = new ConceptDescriptorBuilder2("ROS2", "TopicRef", 0x73f2d64e927d48dcL, 0x89c7793f38431f94L, 0x28eca1beb2ec604cL);
+  private static ConceptDescriptor createDescriptorForServiceDefinion() {
+    ConceptDescriptorBuilder2 b = new ConceptDescriptorBuilder2("ROS2", "ServiceDefinion", 0x73f2d64e927d48dcL, 0x89c7793f38431f94L, 0x7e5647a816092644L);
     b.class_(false, false, false);
-    b.origin("r:1882f704-9bf3-465f-a74a-418192e19224(ROS2.structure)/2948909696438526028");
+    b.super_("Component.structure.Operation", 0x218e40b475d44de8L, 0x83e6b31e4da8bceeL, 0x17882579cafccce9L);
+    b.origin("r:1882f704-9bf3-465f-a74a-418192e19224(ROS2.structure)/9103542484025812548");
     b.version(2);
-    b.associate("topic", 0x28eca1beb2ec604dL).target(0x73f2d64e927d48dcL, 0x89c7793f38431f94L, 0x22f0a573da97db53L).optional(true).origin("2948909696438526029").done();
+    b.aggregate("result", 0x7e5647a816092645L).target(0x218e40b475d44de8L, 0x83e6b31e4da8bceeL, 0x4ee76d8be7755bfcL).optional(true).ordered(true).multiple(true).origin("9103542484025812549").done();
     return b.create();
   }
 }

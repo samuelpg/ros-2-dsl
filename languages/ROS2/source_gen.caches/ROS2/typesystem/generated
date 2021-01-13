@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<product version="3" modelHash="-8abft7hzapkgbwn9n9916uiozhn2933">
-  <files names="TypesystemDescriptor.java:checkRemappings_NonTypesystemRule.java" />
+<product version="3" modelHash="-75bwonkwfmnf5dx11u8rpujg87pbv01">
+  <files names="TypesystemDescriptor.java:checkConnectionQoSCompatibility_NonTypesystemRule.java:checkDurabilityIllegalValues_NonTypesystemRule.java:checkLivelinessIllegalValues_NonTypesystemRule.java:checkOperationQoSCompatibility_NonTypesystemRule.java:check_Monitor_NonTypesystemRule.java:check_Remappings_NonTypesystemRule.java:check_uniqueComponentInstName_NonTypesystemRule.java:typeof_OperationConnector_InferenceRule.java" />
 </product>
 

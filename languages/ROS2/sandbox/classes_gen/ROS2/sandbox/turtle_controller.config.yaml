@@ -1,0 +1,6 @@
+# configuration file for turtle_controller
+
+turtle_controller:
+    ros__parameters:
+        #name:  #no value specified
+        #acceleration:  #no value specified

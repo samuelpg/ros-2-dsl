@@ -9,35 +9,40 @@ import org.jetbrains.mps.openapi.language.SAbstractConcept;
 import jetbrains.mps.smodel.runtime.ConceptPresentationBuilder;
 
 public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase {
-  private ConceptPresentation props_Action;
-  private ConceptPresentation props_Argument;
+  private ConceptPresentation props_ActionDefinition;
   private ConceptPresentation props_CapabilityProfileAnnotation;
+  private ConceptPresentation props_ClientPort;
+  private ConceptPresentation props_ClientPortRef;
+  private ConceptPresentation props_ConnectionRef;
+  private ConceptPresentation props_DefaultQoS;
+  private ConceptPresentation props_IOperationPort;
+  private ConceptPresentation props_MessageDefinition;
+  private ConceptPresentation props_MessageTypeRef;
   private ConceptPresentation props_Monitor;
   private ConceptPresentation props_Namespace;
+  private ConceptPresentation props_OperationConnector;
+  private ConceptPresentation props_OperationConnectorAnnotation;
+  private ConceptPresentation props_OperationPortRef;
+  private ConceptPresentation props_OperationPorts;
+  private ConceptPresentation props_ROSDefinitions;
+  private ConceptPresentation props_RemappingArgument;
   private ConceptPresentation props_Remappings;
   private ConceptPresentation props_RequirementsProfileAnnotation;
-  private ConceptPresentation props_Topic;
-  private ConceptPresentation props_TopicRef;
+  private ConceptPresentation props_ServerPort;
+  private ConceptPresentation props_ServiceDefinion;
 
   @Override
   @Nullable
   public ConceptPresentation getDescriptor(SAbstractConcept c) {
     StructureAspectDescriptor structureDescriptor = (StructureAspectDescriptor) myLanguageRuntime.getAspect(jetbrains.mps.smodel.runtime.StructureAspectDescriptor.class);
     switch (structureDescriptor.internalIndex(c)) {
-      case LanguageConceptSwitch.Action:
-        if (props_Action == null) {
+      case LanguageConceptSwitch.ActionDefinition:
+        if (props_ActionDefinition == null) {
           ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
-          cpb.rawPresentation("Action");
-          props_Action = cpb.create();
+          cpb.presentationByName();
+          props_ActionDefinition = cpb.create();
         }
-        return props_Action;
-      case LanguageConceptSwitch.Argument:
-        if (props_Argument == null) {
-          ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
-          cpb.rawPresentation("argument remap");
-          props_Argument = cpb.create();
-        }
-        return props_Argument;
+        return props_ActionDefinition;
       case LanguageConceptSwitch.CapabilityProfileAnnotation:
         if (props_CapabilityProfileAnnotation == null) {
           ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
@@ -46,6 +51,54 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
           props_CapabilityProfileAnnotation = cpb.create();
         }
         return props_CapabilityProfileAnnotation;
+      case LanguageConceptSwitch.ClientPort:
+        if (props_ClientPort == null) {
+          ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
+          cpb.presentationByName();
+          props_ClientPort = cpb.create();
+        }
+        return props_ClientPort;
+      case LanguageConceptSwitch.ClientPortRef:
+        if (props_ClientPortRef == null) {
+          ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
+          cpb.presentationByReference(0x73f2d64e927d48dcL, 0x89c7793f38431f94L, 0x69023be9ff8032b6L, 0x69023be9ff8032b7L, "ref", "", "");
+          props_ClientPortRef = cpb.create();
+        }
+        return props_ClientPortRef;
+      case LanguageConceptSwitch.ConnectionRef:
+        if (props_ConnectionRef == null) {
+          ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
+          cpb.presentationByReference(0x73f2d64e927d48dcL, 0x89c7793f38431f94L, 0x6b677cc61c2acea1L, 0x6b677cc61c2acea2L, "ref", "", "");
+          props_ConnectionRef = cpb.create();
+        }
+        return props_ConnectionRef;
+      case LanguageConceptSwitch.DefaultQoS:
+        if (props_DefaultQoS == null) {
+          ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
+          cpb.rawPresentation("DefaultQoS");
+          props_DefaultQoS = cpb.create();
+        }
+        return props_DefaultQoS;
+      case LanguageConceptSwitch.IOperationPort:
+        if (props_IOperationPort == null) {
+          ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
+          props_IOperationPort = cpb.create();
+        }
+        return props_IOperationPort;
+      case LanguageConceptSwitch.MessageDefinition:
+        if (props_MessageDefinition == null) {
+          ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
+          cpb.presentationByName();
+          props_MessageDefinition = cpb.create();
+        }
+        return props_MessageDefinition;
+      case LanguageConceptSwitch.MessageTypeRef:
+        if (props_MessageTypeRef == null) {
+          ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
+          cpb.presentationByReference(0x73f2d64e927d48dcL, 0x89c7793f38431f94L, 0x6b677cc61c077ee4L, 0x6b677cc61c077ee5L, "ref", "", "");
+          props_MessageTypeRef = cpb.create();
+        }
+        return props_MessageTypeRef;
       case LanguageConceptSwitch.Monitor:
         if (props_Monitor == null) {
           ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
@@ -60,6 +113,49 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
           props_Namespace = cpb.create();
         }
         return props_Namespace;
+      case LanguageConceptSwitch.OperationConnector:
+        if (props_OperationConnector == null) {
+          ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
+          cpb.presentationByName();
+          props_OperationConnector = cpb.create();
+        }
+        return props_OperationConnector;
+      case LanguageConceptSwitch.OperationConnectorAnnotation:
+        if (props_OperationConnectorAnnotation == null) {
+          ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
+          cpb.rawPresentation("OperationConnectorAnnotation");
+          props_OperationConnectorAnnotation = cpb.create();
+        }
+        return props_OperationConnectorAnnotation;
+      case LanguageConceptSwitch.OperationPortRef:
+        if (props_OperationPortRef == null) {
+          ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
+          cpb.presentationByReference(0x73f2d64e927d48dcL, 0x89c7793f38431f94L, 0x69023be9ff7a5d38L, 0x69023be9ff7a5d39L, "ref", "", "");
+          props_OperationPortRef = cpb.create();
+        }
+        return props_OperationPortRef;
+      case LanguageConceptSwitch.OperationPorts:
+        if (props_OperationPorts == null) {
+          ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
+          cpb.rawPresentation("OperationPorts");
+          props_OperationPorts = cpb.create();
+        }
+        return props_OperationPorts;
+      case LanguageConceptSwitch.ROSDefinitions:
+        if (props_ROSDefinitions == null) {
+          ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
+          cpb.presentationByName();
+          cpb.icon(IconContainer.RESOURCE_a0a2a0a51b0w);
+          props_ROSDefinitions = cpb.create();
+        }
+        return props_ROSDefinitions;
+      case LanguageConceptSwitch.RemappingArgument:
+        if (props_RemappingArgument == null) {
+          ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
+          cpb.rawPresentation("argument remap");
+          props_RemappingArgument = cpb.create();
+        }
+        return props_RemappingArgument;
       case LanguageConceptSwitch.Remappings:
         if (props_Remappings == null) {
           ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
@@ -71,24 +167,24 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
         if (props_RequirementsProfileAnnotation == null) {
           ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
           cpb.shortDesc("requirements profile annotation for system");
-          cpb.presentationByReference(0x73f2d64e927d48dcL, 0x89c7793f38431f94L, 0x31ec195a68373327L, 0x31ec195a68373328L, "requirementsProfile", "", "");
+          cpb.presentationByReference(0x73f2d64e927d48dcL, 0x89c7793f38431f94L, 0x31ec195a68373327L, 0x31ec195a68373328L, "profile", "", "");
           props_RequirementsProfileAnnotation = cpb.create();
         }
         return props_RequirementsProfileAnnotation;
-      case LanguageConceptSwitch.Topic:
-        if (props_Topic == null) {
+      case LanguageConceptSwitch.ServerPort:
+        if (props_ServerPort == null) {
           ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
           cpb.presentationByName();
-          props_Topic = cpb.create();
+          props_ServerPort = cpb.create();
         }
-        return props_Topic;
-      case LanguageConceptSwitch.TopicRef:
-        if (props_TopicRef == null) {
+        return props_ServerPort;
+      case LanguageConceptSwitch.ServiceDefinion:
+        if (props_ServiceDefinion == null) {
           ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
-          cpb.rawPresentation("TopicRef");
-          props_TopicRef = cpb.create();
+          cpb.presentationByName();
+          props_ServiceDefinion = cpb.create();
         }
-        return props_TopicRef;
+        return props_ServiceDefinion;
     }
     return null;
   }

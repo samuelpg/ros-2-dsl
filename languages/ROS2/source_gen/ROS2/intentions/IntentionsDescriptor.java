@@ -35,10 +35,17 @@ public final class IntentionsDescriptor extends AbstractIntentionAspectDescripto
         if (true) {
           // concept 
           intentions = new IntentionFactory[1];
-          intentions[0] = new AddRequirementsAnnotation_Intention();
+          intentions[0] = new AddOperationPort_Intention();
         }
         break;
       case 1:
+        if (true) {
+          // concept 
+          intentions = new IntentionFactory[1];
+          intentions[0] = new AddRequirementsAnnotationToConnections_Intention();
+        }
+        break;
+      case 2:
         if (true) {
           // concept 
           intentions = new IntentionFactory[2];
@@ -46,25 +53,34 @@ public final class IntentionsDescriptor extends AbstractIntentionAspectDescripto
           intentions[1] = new AddNamespace_Intention();
         }
         break;
-      case 2:
-        if (true) {
-          // concept 
-          intentions = new IntentionFactory[1];
-          intentions[0] = new AddCapabilityAnnotation_Intention();
-        }
-        break;
       case 3:
         if (true) {
           // concept 
           intentions = new IntentionFactory[1];
-          intentions[0] = new AddActionDefinition_Intention();
+          intentions[0] = new AddCapabilityToOperationAnnotation_Intention();
         }
         break;
       case 4:
         if (true) {
           // concept 
           intentions = new IntentionFactory[1];
+          intentions[0] = new AddCapabilityToIPortAnnotation_Intention();
+        }
+        break;
+      case 5:
+        if (true) {
+          // concept 
+          intentions = new IntentionFactory[1];
+          intentions[0] = new AddRequirementsAnnotationToOperations_Intention();
+        }
+        break;
+      case 6:
+        if (true) {
+          // concept 
+          intentions = new IntentionFactory[3];
           intentions[0] = new AddMonitor_Intention();
+          intentions[1] = new AddDefaultQoS_Intention();
+          intentions[2] = new AddOperationConnectors_Intention();
         }
         break;
       default:
@@ -76,14 +92,18 @@ public final class IntentionsDescriptor extends AbstractIntentionAspectDescripto
   @NotNull
   @Override
   public Collection<IntentionFactory> getAllIntentions() {
-    IntentionFactory[] rv = new IntentionFactory[6];
-    rv[0] = new AddCapabilityAnnotation_Intention();
-    rv[1] = new AddRequirementsAnnotation_Intention();
+    IntentionFactory[] rv = new IntentionFactory[10];
+    rv[0] = new AddCapabilityToIPortAnnotation_Intention();
+    rv[1] = new AddRequirementsAnnotationToConnections_Intention();
     rv[2] = new AddRemappings_Intention();
-    rv[3] = new AddActionDefinition_Intention();
-    rv[4] = new AddMonitor_Intention();
-    rv[5] = new AddNamespace_Intention();
+    rv[3] = new AddMonitor_Intention();
+    rv[4] = new AddNamespace_Intention();
+    rv[5] = new AddOperationPort_Intention();
+    rv[6] = new AddCapabilityToOperationAnnotation_Intention();
+    rv[7] = new AddDefaultQoS_Intention();
+    rv[8] = new AddOperationConnectors_Intention();
+    rv[9] = new AddRequirementsAnnotationToOperations_Intention();
     return Arrays.asList(rv);
   }
-  private static final ConceptSwitchIndex conceptIndex = new ConceptSwitchIndexBuilder().put(MetaIdFactory.conceptId(0x218e40b475d44de8L, 0x83e6b31e4da8bceeL, 0x17882579cafcccdcL), MetaIdFactory.conceptId(0x218e40b475d44de8L, 0x83e6b31e4da8bceeL, 0x5408c2d7e8f00aeeL), MetaIdFactory.conceptId(0x218e40b475d44de8L, 0x83e6b31e4da8bceeL, 0x17882579cafcccdeL), MetaIdFactory.conceptId(0x218e40b475d44de8L, 0x83e6b31e4da8bceeL, 0x17882579cafccce9L), MetaIdFactory.conceptId(0x218e40b475d44de8L, 0x83e6b31e4da8bceeL, 0x17882579cafcccdbL)).seal();
+  private static final ConceptSwitchIndex conceptIndex = new ConceptSwitchIndexBuilder().put(MetaIdFactory.conceptId(0x218e40b475d44de8L, 0x83e6b31e4da8bceeL, 0x17882579cafcccdaL), MetaIdFactory.conceptId(0x218e40b475d44de8L, 0x83e6b31e4da8bceeL, 0x17882579cafcccdcL), MetaIdFactory.conceptId(0x218e40b475d44de8L, 0x83e6b31e4da8bceeL, 0x5408c2d7e8f00aeeL), MetaIdFactory.conceptId(0x73f2d64e927d48dcL, 0x89c7793f38431f94L, 0x2cc4976fc53337a5L), MetaIdFactory.conceptId(0x218e40b475d44de8L, 0x83e6b31e4da8bceeL, 0x17882579cafcccdeL), MetaIdFactory.conceptId(0x73f2d64e927d48dcL, 0x89c7793f38431f94L, 0x69023be9ff802cb6L), MetaIdFactory.conceptId(0x218e40b475d44de8L, 0x83e6b31e4da8bceeL, 0x17882579cafcccdbL)).seal();
 }
