@@ -1694,7 +1694,7 @@
       </node>
       <node concept="356sEK" id="36KFm9908uX" role="383Ya9">
         <node concept="356sEF" id="36KFm9908uY" role="356sEH">
-          <property role="TrG5h" value="// Comment the line below if no QoS profile are used in this connection." />
+          <property role="TrG5h" value="// Comment the line below if no QoS profile is used in this connection." />
         </node>
         <node concept="2EixSi" id="36KFm9908uZ" role="2EinRH" />
       </node>
