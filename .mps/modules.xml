@@ -8,7 +8,9 @@
       <modulePath path="$PROJECT_DIR$/../dimensions-dsl/languages/Capabilities/Capabilities.mpl" folder="" />
       <modulePath path="$PROJECT_DIR$/../dimensions-dsl/languages/HardwarePlatforms/HardwarePlatforms.mpl" folder="" />
       <modulePath path="$PROJECT_DIR$/../dimensions-dsl/languages/SoftwarePlatforms/SoftwarePlatforms.mpl" folder="" />
+      <modulePath path="$PROJECT_DIR$/../dimensions-dsl/solutions/cosmo.dimensions.build/cosmo.dimensions.build.msd" folder="" />
       <modulePath path="$PROJECT_DIR$/../kinematic-chains-dsl/languages/KinematicChains/KinematicChains.mpl" folder="" />
+      <modulePath path="$PROJECT_DIR$/../kinematic-chains-dsl/solutions/KinematicChains.build/KinematicChains.build.msd" folder="" />
       <modulePath path="$USER_HOME$/MPSProjects/DDS-dsl/languages/DDS/DDS.mpl" folder="" />
       <modulePath path="$USER_HOME$/MPSProjects/QoS-dsl/languages/QoS/QoS.mpl" folder="" />
     </projectModules>

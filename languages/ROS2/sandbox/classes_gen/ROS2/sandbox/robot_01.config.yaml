@@ -1,0 +1,5 @@
+# configuration file for robot_01
+
+robot_01:
+    ros__parameters:
+        id: 1005

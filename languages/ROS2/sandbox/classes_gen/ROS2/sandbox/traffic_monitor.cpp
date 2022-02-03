@@ -13,18 +13,26 @@ through a warning logging message.
 #include "statistics_msgs/msg/metrics_message.hpp"
 #include <cstring>
 
+// Comment the line below if no QoS profile is used in this connection.
+#include "profiles.hpp" // location of the QoS profile 
+
 using std::placeholders::_1;
 
 class Monitor : public rclcpp::Node
 {
     public:
     Monitor()
-    : Node("pos_monitor")
+    : Node("traffic_monitor")
     {
-        /* Monitor for topic pos */
-        pos_statiscics_monitor =
+        /* QoS profile 
+        Comment the block below if no QoS profile is used in this connection*/
+        auto qos_profile = traffic_test;
+        auto qos = rclcpp::QoS(rclcpp::QoSInitialization(qos_profile.history, 10), qos_profile);
+
+        /* Monitor for topic traffic */
+        traffic_statiscics_monitor =
             this->create_subscription<statistics_msgs::msg::MetricsMessage>(
-                "pos/statistics", 10, std::bind(&Monitor::pos_statistics_callback, this, _1)
+                "traffic/statistics", qos, std::bind(&Monitor::traffic_statistics_callback, this, _1)
         );
     }
 
@@ -36,8 +44,8 @@ class Monitor : public rclcpp::Node
     float jitter = 0;
     float delay = 0;
 
-    // statistics pos callback
-    void pos_statistics_callback(
+    // statistics traffic callback
+    void traffic_statistics_callback(
         const statistics_msgs::msg::MetricsMessage::SharedPtr stat) {
 
         // jitter
@@ -51,25 +59,19 @@ class Monitor : public rclcpp::Node
             if (!std::isnan(stat->statistics[DELAY_VALUE_INDEX].data)) {
                 delay  = stat->statistics[DELAY_VALUE_INDEX].data;
             } else {
-                RCLCPP_WARN(this->get_logger(), "[pos] WARNING: unable to "
+                RCLCPP_WARN(this->get_logger(), "[traffic] WARNING: unable to "
                 "obtain delay information, please use a message with a header");
             }
         }
 
         // Monitor checks
-        if(!(jitter<400)){
+        if(!(jitter<100)){
             RCLCPP_WARN(this->get_logger(), " WARNING: constraint violation");
             /*
                 Add your constraint violation logic here
             */
         }
-        if(!(delay>50)){
-            RCLCPP_WARN(this->get_logger(), " WARNING: constraint violation");
-            /*
-                Add your constraint violation logic here
-            */
-        }
-        if(!(jitter>50||delay<40.5)){
+        if(!(delay<250)){
             RCLCPP_WARN(this->get_logger(), " WARNING: constraint violation");
             /*
                 Add your constraint violation logic here
@@ -77,7 +79,7 @@ class Monitor : public rclcpp::Node
         }
     }
     /* subscriptions */
-    rclcpp::Subscription<statistics_msgs::msg::MetricsMessage>::SharedPtr pos_statiscics_monitor; 
+    rclcpp::Subscription<statistics_msgs::msg::MetricsMessage>::SharedPtr traffic_statiscics_monitor; 
 
 };
 
