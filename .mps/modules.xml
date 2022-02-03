@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="MPSProject">
+    <projectModules>
+      <modulePath path="$PROJECT_DIR$/languages/ROS2/ROS2.mpl" folder="" />
+      <modulePath path="$PROJECT_DIR$/languages/ROS2/sandbox/ROS2.sandbox.msd" folder="" />
+      <modulePath path="$PROJECT_DIR$/../component-dsl/languages/Component/Component.mpl" folder="" />
+      <modulePath path="$PROJECT_DIR$/../dimensions-dsl/languages/Capabilities/Capabilities.mpl" folder="" />
+      <modulePath path="$PROJECT_DIR$/../dimensions-dsl/languages/HardwarePlatforms/HardwarePlatforms.mpl" folder="" />
+      <modulePath path="$PROJECT_DIR$/../dimensions-dsl/languages/SoftwarePlatforms/SoftwarePlatforms.mpl" folder="" />
+      <modulePath path="$PROJECT_DIR$/../kinematic-chains-dsl/languages/KinematicChains/KinematicChains.mpl" folder="" />
+      <modulePath path="$USER_HOME$/MPSProjects/DDS-dsl/languages/DDS/DDS.mpl" folder="" />
+      <modulePath path="$USER_HOME$/MPSProjects/QoS-dsl/languages/QoS/QoS.mpl" folder="" />
+    </projectModules>
+  </component>
+</project>

@@ -15,7 +15,6 @@
       <concept id="1070534760951" name="jetbrains.mps.baseLanguage.structure.ArrayType" flags="in" index="10Q1$e">
         <child id="1070534760952" name="componentType" index="10Q1$1" />
       </concept>
-      <concept id="1068431790191" name="jetbrains.mps.baseLanguage.structure.Expression" flags="nn" index="33vP2n" />
       <concept id="1225271177708" name="jetbrains.mps.baseLanguage.structure.StringType" flags="in" index="17QB3L" />
       <concept id="1068580320020" name="jetbrains.mps.baseLanguage.structure.IntegerConstant" flags="nn" index="3cmrfG">
         <property id="1068580320021" name="value" index="3cmrfH" />
@@ -90,9 +89,13 @@
       <concept id="7566676200133324145" name="DDS.structure.DDS_Deadline" flags="ng" index="2mmPqo">
         <property id="7566676200133324148" name="value" index="2mmPqt" />
       </concept>
+      <concept id="5459192469989855140" name="DDS.structure.DDS_History" flags="ng" index="3lYnO4">
+        <property id="5459192469989855141" name="value" index="3lYnO5" />
+      </concept>
       <concept id="5459192469989855204" name="DDS.structure.DDS_Reliability" flags="ng" index="3lYnP4">
         <property id="5459192469989855205" name="value" index="3lYnP5" />
       </concept>
+      <concept id="5459192469989855169" name="DDS.structure.DDS_Liveliness" flags="ng" index="3lYnPx" />
       <concept id="5459192469989647037" name="DDS.structure.DDS_Durability" flags="ng" index="3lYD0t">
         <property id="5459192469989647038" name="value" index="3lYD0u" />
       </concept>
@@ -181,13 +184,13 @@
     <property role="TrG5h" value="warehouse_manager" />
     <node concept="3tteA_" id="6coMJeq5zCy" role="3ttgI7">
       <property role="TrG5h" value="location" />
-      <node concept="2qnlxz" id="6coMJeq5zCV" role="2qnnhv">
+      <node concept="2qnlxz" id="7ChZjoe5dFt" role="2qnnhv">
         <ref role="mLwqv" node="6coMJeq5zA6" />
       </node>
       <node concept="2qnlx$" id="6coMJeq5zCC" role="2qnnho">
         <ref role="mLwqp" node="6coMJeq5zAy" />
       </node>
-      <node concept="2qnlx$" id="6coMJeq5zCI" role="2qnnho">
+      <node concept="2qnlx$" id="7ChZjoe5dF5" role="2qnnho">
         <ref role="mLwqp" node="6coMJeq5zAT" />
       </node>
       <node concept="2qnlx$" id="6coMJeq5zCQ" role="2qnnho">
@@ -263,12 +266,9 @@
       <node concept="FWJLR" id="6coMJeq5zAy" role="l9eUl">
         <ref role="FWJLQ" node="6coMJeq5z_k" resolve="location_publisher" />
       </node>
-      <node concept="2q7hTq" id="6coMJeq5zBF" role="lGtFl">
-        <property role="TrG5h" value="robot_01" />
-      </node>
     </node>
     <node concept="2WYcwU" id="6coMJeq5zAG" role="3ttgI2">
-      <property role="TrG5h" value="robot_02" />
+      <property role="TrG5h" value="robot_01" />
       <ref role="2WYf9R" node="38H6fe1RQOh" resolve="mobile_robot" />
       <node concept="2WYd3i" id="6coMJeq5zAR" role="2WYf99">
         <ref role="2WYd3v" node="6coMJeq5z_H" resolve="id" />
@@ -282,8 +282,8 @@
       <node concept="FWJLR" id="6coMJeq5zAT" role="l9eUl">
         <ref role="FWJLQ" node="6coMJeq5z_k" resolve="location_publisher" />
       </node>
-      <node concept="2q7hTq" id="6coMJeq5zBH" role="lGtFl">
-        <property role="TrG5h" value="robot_02" />
+      <node concept="2q7hTq" id="6TbxWaCpqwB" role="lGtFl">
+        <property role="TrG5h" value="robot_01" />
       </node>
     </node>
     <node concept="2WYcwU" id="6coMJeq5zBg" role="3ttgI2">
@@ -307,7 +307,7 @@
     </node>
   </node>
   <node concept="1wihRA" id="5z3fZ2ZX8UV">
-    <property role="TrG5h" value="turtle_qos_definition" />
+    <property role="TrG5h" value="QOS_definition" />
     <node concept="lVhbz" id="3An4ZUdGBIE" role="1wihR_">
       <property role="TrG5h" value="task_action" />
       <node concept="3lYD0t" id="3snMNRyPd9s" role="lVhbm">
@@ -315,6 +315,10 @@
       </node>
       <node concept="2mmPp4" id="36KFm98ZUKA" role="lVhbm">
         <property role="2mmPp7" value="10000" />
+      </node>
+      <node concept="3lYnPx" id="1n5yoFg4nx7" role="lVhbm" />
+      <node concept="3lYnO4" id="7ChZjoe5fQW" role="lVhbm">
+        <property role="3lYnO5" value="7doERKbPKLA/KEEP_ALL" />
       </node>
     </node>
     <node concept="lVhbz" id="36KFm98ZULm" role="1wihR_">
@@ -362,8 +366,11 @@
         <property role="2mmPp7" value="30000" />
       </node>
     </node>
-    <node concept="lVhbz" id="1rEElzWmroE" role="1wihR_">
-      <node concept="33vP2n" id="1rEElzWmroF" role="lVhbm" />
+    <node concept="lVhbz" id="6pK1GtU1V3n" role="1wihR_">
+      <property role="TrG5h" value="traffic_test" />
+      <node concept="3lYnP4" id="6pK1GtU1V3H" role="lVhbm">
+        <property role="3lYnP5" value="7doERKbPKLw/BEST_EFFORT" />
+      </node>
     </node>
     <node concept="12LBoC" id="3An4ZUdGBId" role="12LBoH">
       <property role="TrG5h" value="loc_rec" />
@@ -404,7 +411,7 @@
         <ref role="1Ro08z" node="6coMJeq5z$5" resolve="Traffic" />
       </node>
       <node concept="3SpRSx" id="36KFm98ZVlR" role="lGtFl">
-        <ref role="1pQMDZ" node="36KFm98ZUMA" resolve="traffic_conn" />
+        <ref role="1pQMDZ" node="6pK1GtU1V3n" resolve="traffic_test" />
       </node>
     </node>
     <node concept="3tteAs" id="6coMJeq5z_k" role="3ttcQl">
